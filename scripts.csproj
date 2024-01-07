@@ -51,6 +51,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Credits.cs" />
+    <Compile Include="Foundation.cs" />
+  </ItemGroup>
   <ItemGroup />
 </Project>
