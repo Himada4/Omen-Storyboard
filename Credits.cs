@@ -47,15 +47,27 @@ namespace StorybrewScripts
             });
             
             //For making diff dependent names
-            /*
+            
             CreditGenerator(
                 CreditType.Name,
-                190650,
-                194771,
-                new List<string>(){"alevi", "nyarvis", "alevi"},
-                new List<string>(){"Hard", "nyarvis' Insane", "Nihility"}
+                483,
+                3225,
+                new List<string>(){"FREUDEMAN", "FREUDEMAN", "FREUDEMAN", "NYARVIS"},
+                new List<string>(){"d-_-b", "Insane", "Normal", "nyarvis' Hard"},
+                new Vector2(270, 178),
+                0
             );
-            */
+
+            CreditGenerator(
+                CreditType.Name,
+                483,
+                3225,
+                new List<string>(){"FREUDEMAN", "FREUDEMAN", "FREUDEMAN", "NYARVIS"},
+                new List<string>(){"d-_-b", "Insane", "Normal", "nyarvis' Hard"},
+                new Vector2(370, 302),
+                Math.PI
+            );
+            
 
             //For making title
             CreditGenerator(
@@ -79,17 +91,17 @@ namespace StorybrewScripts
             //For making rest of the names (Hitsounder's, and Storyboarder's)
             CreditGenerator(
                 CreditType.Name,
-                new List<int>(){483, 3225, 5968, 8711}, 
+                new List<int>(){3225, 5968, 8711}, 
                 // ^ As you see below, there are only 2 Names, but 3 timings, the 3th one is for the endTime for the 2nd Name. Make sure to add that!
-                new List<string>(){"FREUDEMAN", "IDKSOMEONE","HIMADA"},
+                new List<string>(){"FOSS","HIMADA"},
                 new Vector2(270, 178),
                 0
             );
             CreditGenerator(
                 CreditType.Name,
-                new List<int>(){483, 3225, 5968, 8711}, 
+                new List<int>(){3225, 5968, 8711}, 
                 // ^ As you see below, there are only 2 Names, but 3 timings, the 3th one is for the endTime for the 2nd Name. Make sure to add that!
-                new List<string>(){"FREUDEMAN", "IDKSOMEONE","HIMADA"},
+                new List<string>(){"FOSS","HIMADA"},
                 new Vector2(370, 302),
                 Math.PI
             );
@@ -100,7 +112,7 @@ namespace StorybrewScripts
         //Note that this is used for single case. (e.g Single use of this method will cover "Mapper's Name" Scene, but not for other scenes, so you have to
         //create those seperately, but probably just use the Static Credit Generation, since most of the time "HSer" Scene and "Storyboarder" Scenes
         // are the same throughout the set.)
-        void CreditGenerator(CreditType CreditType, int startTime, int endTime, List<string> creditOptions, List<string> diffNames){
+        void CreditGenerator(CreditType CreditType, int startTime, int endTime, List<string> creditOptions, List<string> diffNames, Vector2 position, double rotation){
             
             if(CreditType == CreditType.Name){
 
@@ -109,7 +121,7 @@ namespace StorybrewScripts
                 for(int i = 0; i < diffNames.Count; i ++){
 
                     if(diffNames[i] == Beatmap.Name) 
-                    Name = GetLayer("Credits").CreateSprite(Names.GetTexture(creditOptions[i]).Path, OsbOrigin.CentreLeft, namePos);
+                    Name = GetLayer("Credits").CreateSprite(Names.GetTexture(creditOptions[i]).Path, OsbOrigin.CentreLeft, position);
         
                 }
 
@@ -117,10 +129,11 @@ namespace StorybrewScripts
                 Name.Fade(endTime - 200, endTime, fade, 0);
                 Name.Scale(startTime - 200, 0.2);
                 Name.Additive(startTime - 200, endTime);
+                Name.Rotate(startTime - 200, rotation);
 
                 int duration = endTime - startTime;
-                Name.MoveY(OsbEasing.OutExpo, startTime - 200, startTime - 200 + (duration / 2), namePos.Y + 10, namePos.Y);
-                Name.MoveY(OsbEasing.InExpo, startTime - 200 + (duration / 2), endTime, namePos.Y, namePos.Y - 10);
+                Name.MoveY(OsbEasing.OutExpo, startTime - 200, startTime - 200 + (duration / 2), position.Y + 10, position.Y);
+                Name.MoveY(OsbEasing.InExpo, startTime - 200 + (duration / 2), endTime, position.Y, position.Y - 10);
             }
 
             if(CreditType == CreditType.Title){ 

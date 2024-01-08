@@ -1,0 +1,21 @@
+﻿FormatVersion: 7
+Name: "Particles 1"
+Script: "Particles"
+Multithreaded: No
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random Seed"
+    BeginsGroup: "Common"
+Layers:
+  6a17cbe230014b309cf00d9227ea3f6a:
+    Name: "part"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
+  ae9ac0fc16b94fa6b297362db19f4cda:
+    Name: "part a"
+    OsbLayer: Foreground
+    DiffSpecific: Yes
+    Visible: Yes

@@ -55,6 +55,8 @@
     <Compile Include="Credits.cs" />
     <Compile Include="Foundation.cs" />
     <Compile Include="Karaoke.cs" />
+    <Compile Include="Particles.cs" />
+    <Compile Include="Spectrum.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
