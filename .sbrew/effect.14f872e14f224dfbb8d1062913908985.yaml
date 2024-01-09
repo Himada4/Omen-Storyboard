@@ -19,6 +19,11 @@ Layers:
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes
+  ec56057abd7d45909b203ffb6e08159f:
+    Name: "black addtive"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
   2a88639e0f6e483994bbb13bb33e12b3:
     Name: "BG"
     OsbLayer: Foreground

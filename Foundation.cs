@@ -86,8 +86,13 @@ namespace StorybrewScripts
 
             bg.Additive(55340, 77282);
             bg.Additive(121168, 143111);
+            var blackBg = GetLayer("black addtive").CreateSprite("sb/additive.png");
+            blackBg.Fade(143111, 143111, 1, 0);
+            blackBg.Scale(121168, 480.0f / bit.Height);
+            blackBg.Fade(145854, 1);
+            blackBg.Fade(165054, 0);
             WiggleScreen2(55340, 77282, 25, new Vector2(320 , 240), 0, 2, bg);
-            WiggleScreen2(121168, 143111, 25, new Vector2(320 , 240), 0, 2, bg);
+            WiggleScreen2(121168, 143111, 25, new Vector2(320 , 240), 0, 2, bg, blackBg);
             
 
             introShapes(mono);

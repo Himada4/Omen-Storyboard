@@ -23,7 +23,77 @@ namespace StorybrewScripts
             hit();
             puddle();
             chorus();
-            particleBottomToUp(GetLayer("part"), 100, 121168, 143111, Color4.Pink);
+            particleBottomToUp(GetLayer("part"), 100, 119968, 143111, Color4.Pink);
+            secondKiai(GetLayer("part"), 100, 66311, 77282, Color4.Pink);
+            secondKiai(GetLayer("part"), 100, 132140, 143111, Color4.Pink);
+        }
+
+        void secondKiai(StoryboardLayer layer, int numOfParticles, int pStartTime, int pEndTime, Color4 particleColor){
+
+            for(int i = 0; i < numOfParticles; i ++){
+
+
+                int randomX = Random(-100, 740);
+                int randomY = Random(0, 480);
+                int distance = Random(10, 100);
+                double angle = Random(-Math.PI, Math.PI);
+
+                var p = layer.CreateSprite("sb/particle.png");
+
+                int durationStart = Random(pStartTime, pEndTime - 5000 / 2);
+                int durationEnd = durationStart + Random(5000 / 2, 10000 / 2);
+                double Scale = 0;
+                if(i % 10 == 0){
+                    Scale = Random(0.5 / 3, 1 / 3);
+                }else{
+                    Scale = Random(0.15 / 3, 0.35 / 3);
+                }
+
+                var scales = new List<double>();
+                for(int k = 0; k < 4; k ++){
+                    double temp = 0;
+                    if(i % 10 == 0){
+                        temp = Random(0.5 / 1.5, 1 / 1.5);
+                    }else{
+                        temp = Random(0.15 / 1.5, 0.35 / 1.5);
+                    }
+                    scales.Add(temp);
+                }
+
+                var j = 1;
+                var perDuration = 2000;
+                
+                p.MoveY(durationStart, durationEnd, 500, Random(200, 240));
+                p.StartLoopGroup(durationStart, (durationEnd - durationStart) / perDuration);
+                var dir = Random(10, 20) * j;
+                p.MoveX(OsbEasing.InOutSine, 0, perDuration/2, randomX, randomX + dir);
+                p.MoveX(OsbEasing.InOutSine, perDuration/2, perDuration, randomX + dir, randomX);
+                p.EndGroup();
+
+                var beat = 66483 - 66311;
+
+                p.StartLoopGroup(pStartTime, ((pEndTime - pStartTime) / beat) / 4);
+                p.Scale(0, scales[0]);
+                p.Scale(beat, scales[1]);
+                p.Scale(beat * 2, scales[2]);
+                p.Scale(beat * 3, beat * 4, scales[3], scales[3]);
+                p.EndGroup();
+
+                
+                p.Fade(durationStart, durationStart + 1000, 0, 0.6);
+
+                if(durationEnd >= pEndTime){
+                    p.Fade(pEndTime - 1000, pEndTime, 0.8, 0);
+                }else{
+                    p.Fade(durationEnd - 1000, durationEnd, 0.8, 0);
+                }
+                
+                p.Color(durationStart, particleColor);
+                p.Additive(durationStart, durationEnd);
+                j = j * -1;
+
+            }
+
         }
 
         void chorus(){
