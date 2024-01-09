@@ -125,6 +125,8 @@ namespace StorybrewScripts
         
                 }
 
+                if(Name == null) return;
+
                 Name.Fade(startTime - 200, startTime, 0, fade);
                 Name.Fade(endTime - 200, endTime, fade, 0);
                 Name.Scale(startTime - 200, 0.2);

@@ -17,6 +17,7 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
+            GetLayer("REMOVEBG").CreateSprite(Beatmap.BackgroundPath).Fade(0,0);
             var mono = GetLayer("mono");
             
             var p = mono.CreateSprite("sb/p.png");

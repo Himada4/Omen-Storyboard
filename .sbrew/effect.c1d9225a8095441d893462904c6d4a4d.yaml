@@ -9,13 +9,13 @@ Config:
     DisplayName: "Random Seed"
     BeginsGroup: "Common"
 Layers:
-  6a17cbe230014b309cf00d9227ea3f6a:
-    Name: "part"
-    OsbLayer: Background
-    DiffSpecific: No
-    Visible: Yes
   ae9ac0fc16b94fa6b297362db19f4cda:
     Name: "part a"
     OsbLayer: Foreground
     DiffSpecific: Yes
+    Visible: Yes
+  6a17cbe230014b309cf00d9227ea3f6a:
+    Name: "part"
+    OsbLayer: Foreground
+    DiffSpecific: No
     Visible: Yes

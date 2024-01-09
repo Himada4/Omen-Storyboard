@@ -11,6 +11,6 @@ Config:
 Layers:
   d5f26bb5ee1e48179f02eb84c889d796:
     Name: "Credits"
-    OsbLayer: Background
-    DiffSpecific: No
+    OsbLayer: Foreground
+    DiffSpecific: Yes
     Visible: Yes

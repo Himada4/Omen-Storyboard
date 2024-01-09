@@ -9,6 +9,11 @@ Config:
     DisplayName: "Random Seed"
     BeginsGroup: "Common"
 Layers:
+  463bcd9101d54d1f804581cf862d843a:
+    Name: "REMOVEBG"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
   039a8a63553d4b4d94f0210e3268ebbf:
     Name: "chrous"
     OsbLayer: Background
@@ -16,12 +21,12 @@ Layers:
     Visible: Yes
   2a88639e0f6e483994bbb13bb33e12b3:
     Name: "BG"
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes
   2ca88aed6d404082b0f98725e1a85248:
     Name: "mono"
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes
   7d5972b254694227b5f9130f280cfe10:
